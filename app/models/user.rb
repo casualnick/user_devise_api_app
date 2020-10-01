@@ -9,6 +9,6 @@ class User < ApplicationRecord
 
   def create_new_auhtentication_token
     token = User.generate_unique_secure_token
-    update_atributes(authentication_token: token)
+    update_attributes(authentication_token: token)
   end
 end

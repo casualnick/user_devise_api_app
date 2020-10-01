@@ -41,7 +41,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         if @user
             return @user
         else
-            json_response("Invalid Token", flase, {}, :failure)
+            json_response("Invalid Token", false, {}, :unauthorized)
         end
     end
 end
