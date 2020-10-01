@@ -1,24 +1,3 @@
-# README
+# Devise user application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is api-only devise user application created with RAILS 6.0. This aplication is based on JSON structure. I am using custom authentcation token in order to authenticate users.
