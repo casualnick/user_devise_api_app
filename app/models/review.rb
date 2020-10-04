@@ -6,15 +6,16 @@ class Review < ApplicationRecord
 
   counter_culture :book
 
-  attr_accessor :image_review
+  attr_accessor :picture
 
-  has_attached_file :picture, styles: {medium: "300x300>", thumb: "100x100>"}
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment :picture, presence: true
   do_not_validate_attachment_file_type :picture
 
   private
+
   def parse_image
-    image = Paperclip.io_adapters.for image_review
+    image = Paperclip.io_adapters.for(picture, Paperclip::Attachment.default_options[:adapter_options])
     image.original_filename = "review_image.jpg"
     self.picture = image
   end
