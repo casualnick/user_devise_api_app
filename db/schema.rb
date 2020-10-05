@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_073432) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "picture_file_name"
     t.string "picture_content_type"
-    t.bigint "picture_file_size"
+    t.integer "picture_file_size"
     t.datetime "picture_updated_at"
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"

@@ -1,14 +1,14 @@
 class User < ApplicationRecord
   acts_as_token_authenticatable
-
-  has_many :reviews
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :reviews
+  
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
-  def create_new_auhtentication_token
+  def generate_new_authentication_token
     token = User.generate_unique_secure_token
-    update_attributes(authentication_token: token)
+    update_attributes authentication_token: token
   end
 end

@@ -26,14 +26,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 
 group :development, :test do
-gem 'rspec-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
   gem 'listen', '~> 3.2'
-  gem 'factory_bot_rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -45,6 +45,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test do
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'database_cleaner-active_record'
 end
 
 gem 'devise'

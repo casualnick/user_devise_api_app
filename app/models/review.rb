@@ -15,12 +15,12 @@ class Review < ApplicationRecord
   private
 
   def parse_image
-    image = Paperclip.io_adapters.for(picture, Paperclip::Attachment.default_options[:adapter_options])
+    image = Paperclip.io_adapters.for(picture)
     image.original_filename = "review_image.jpg"
     self.picture = image
   end
 
   def calculate_average_rating
-    self.average_rating = ((self.content_rating.to_f + self.recommend_rating.to_f)/ 2).round(1)
+    self.average_rating = ((self.content_rating.to_f + self.recomment_rating.to_f)/ 2).round(1)
   end
 end
