@@ -17,7 +17,7 @@ class Api::V1::SessionsController < Devise::SessionsController
     #sign out
     def destroy
         sign_out @user
-        @user.create_new_auhtentication_token
+        @user.generate_new_authentication_token
         json_response("Log out properly", true, {}, :ok)
     end
 
@@ -27,7 +27,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         params.require(:sign_in).permit(:email, :password)
     end
 
-    def load_user
+    def load_user 
         @user = User.find_for_database_authentication(email: sign_in_params[:email])
         if @user 
             return @user
